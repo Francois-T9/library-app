@@ -71,6 +71,7 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     padding: 20px;
+    gap: 10px;
 }
 
 .container .book-display .books {
@@ -87,9 +88,9 @@ body {
     gap: 5px;
 }
 
-.container .book-display .books .book-title,
-.container .book-display .books .book-author,
-.container .book-display .books .book-pages
+.container .book-title,
+.container .book-author,
+.container .book-pages
  {
     height: 2em;
     width: 10em;
@@ -106,7 +107,10 @@ body {
     font-weight: 700;
     border-radius: 20px;
     font-size: 18px;
-    margin: 5px 10px 5px 10px;
+    /* margin: 5px 10px 5px 10px; */
+    height: 2em;
+    width: 7em;
+    align-items: center;
 
 }
 #reset-btn {
@@ -117,4 +121,15 @@ body {
 
 #submit-btn:hover {
     background-color: rgb(255, 118, 118);
+}
+
+#reset-btn:hover {
+    background-color: rgb(149, 149, 250);
+}
+
+.container .book-display book {
+    background-color: gainsboro;
+    border-radius: 20px;
+    border: 2px solid black;
+    align-items: center;
 }
