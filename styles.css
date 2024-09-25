@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
+    font-family: "Edu AU VIC WA NT Guides", cursive;
 }
 
 body {
@@ -57,7 +58,13 @@ body {
     height: 2em;
     align-items: center;
     grid-row: 1;
+    border-radius: 20px;
+    border: 1px solid black;
+    /* padding: 10px;  */
+    
 }
+
+
 
 .container .user-inputs form ul li button {
     display: grid;
@@ -74,12 +81,24 @@ body {
     gap: 10px;
 }
 
-.container .book-display .books {
-    background-color: gainsboro;
-    border-radius: 20px;
-    border: 2px solid black;
+.container .book-display book {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+
     align-items: center;
+    justify-items: center;
     
+    gap: 10px;
+    padding: 10px;
+}
+
+.container .book-display book h3 {
+    grid-column: 1;
+}
+
+.container .book-display book input {
+    grid-column: 3;
+    grid-row: 1;
 }
 .container .book-display .books #book-one {
     display: grid;
@@ -93,9 +112,13 @@ body {
 .container .book-pages
  {
     height: 2em;
-    width: 10em;
+    width: 15em;
     background-color: aliceblue;
     border: 2px solid black;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
     
 }
 
@@ -110,7 +133,10 @@ body {
     /* margin: 5px 10px 5px 10px; */
     height: 2em;
     width: 7em;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    
 
 }
 #reset-btn {
@@ -132,4 +158,14 @@ body {
     border-radius: 20px;
     border: 2px solid black;
     align-items: center;
+}
+
+input[type=text],
+input[type=number]
+ {
+    padding-left: 10px;
+}
+
+input[type=image] {
+    width: 40px;
 }
