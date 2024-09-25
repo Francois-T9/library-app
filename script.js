@@ -10,6 +10,7 @@ const bookPages=document.querySelector("#num-pages");
 
 const submitBook=document.querySelector("#submit-btn")
 const resetButton=document.querySelector("#reset-btn")
+const closeButton=document.querySelector("#close-btn")
 
 //--------------------BOOKS CONTAINER
 const bookDisplay=document.querySelector(".book-display");
@@ -35,10 +36,24 @@ const book2= new Book("harry","JKR",113);
 
  //--------- FUNCTIONS ------------
  function resetLibrary() {
-  myLibrary=[]
+  myLibrary=[];
+  addBookToLibrary(book1);
+  createBookCard(myLibrary[0]);
+  clickCounter=0;
   while (bookDisplay.childNodes.length>2) {
     bookDisplay.removeChild(bookDisplay.lastChild);
 }
+}
+
+function removeBook() {
+  bookDisplay.removeChild(bookDisplay.lastChild);
+}
+
+function resetTitle() {
+  bookTitle.value="";
+  bookAuthor.value="";
+  bookPages.value="";
+
 
 }
 
@@ -54,19 +69,28 @@ function addBookToLibrary(book) {
 
 function createBookCard(book) {
   
-  bookDisplay.appendChild(bookDisplay.children[0].cloneNode(true));
-  displayTitle.textContent=book.title;
-  displayAuthor.textContent=book.author;
-  displayPages.textContent=book.numPages;
+  const newBook = bookDisplay.children[0].cloneNode(true);
   
+  // Update the new book with the current book information
+  newBook.querySelector(".book-title").textContent = book.title;
+  newBook.querySelector(".book-author").textContent = book.author;
+  newBook.querySelector(".book-pages").textContent = book.numPages;
+  
+  // Append the new book to the book display
+  bookDisplay.appendChild(newBook);
 
+  newBook.querySelector("#close-btn").addEventListener("click",() =>
+  {
+    bookDisplay.removeChild(newBook);
+  });
 
 }
 
 function defaultBook(book) {
-  displayTitle.textContent=book.title;
-  displayAuthor.textContent=book.author;
-  displayPages.textContent=book.numPages;
+  const firstBook = bookDisplay.children[0];
+  firstBook.querySelector(".book-title").textContent = book.title;
+  firstBook.querySelector(".book-author").textContent = book.author;
+  firstBook.querySelector(".book-pages").textContent = book.numPages;
   
   
 }
@@ -85,23 +109,13 @@ submitBook.addEventListener("click", (event) => {
   event.preventDefault(); //avoid the page reseting each time the button is clicked
 
   ++clickCounter;
+  console.log(clickCounter);
   
-  
-
   book=new Book(bookTitle.value,bookAuthor.value,bookPages.value);
   addBookToLibrary(book);
-  
-  
-  // displayTitle.textContent=myLibrary[clickCounter].title;
-  // displayAuthor.textContent=myLibrary[clickCounter].author;
-  // displayPages.textContent=myLibrary[clickCounter].numPages;
-  
+
   createBookCard(myLibrary[clickCounter]);
-
-
-  
- 
-  
+  resetTitle();
 })
 
 resetButton.addEventListener("click", (event)=> {
