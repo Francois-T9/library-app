@@ -25,6 +25,7 @@ body {
 .container .user-inputs form {
     display: grid;
     grid-column: 2;
+    justify-items: center;
     
    
 }
@@ -41,6 +42,7 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     align-items: center;
+    /* justify-items: center; */
 }
 .container .user-inputs form ul li:last-child {
     justify-items: center;
@@ -168,4 +170,16 @@ input[type=number]
 
 input[type=image] {
     width: 40px;
+}
+
+.container .book-display book input[type=button] {
+    display: grid;
+    grid-column: 3;
+    grid-row: 3;
+    border-radius: 20px;
+    background-color: red;
+    color: azure;
+    font-weight: 700;
+    font-size: 18px;
+    width: 7em;
 }
