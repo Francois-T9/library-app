@@ -11,6 +11,7 @@ const bookPages=document.querySelector("#num-pages");
 const submitBook=document.querySelector("#submit-btn")
 const resetButton=document.querySelector("#reset-btn")
 const closeButton=document.querySelector("#close-btn")
+const readButton=document.querySelector("#read-btn")
 
 //--------------------BOOKS CONTAINER
 const bookDisplay=document.querySelector(".book-display");
@@ -76,9 +77,34 @@ function createBookCard(book) {
   newBook.querySelector(".book-author").textContent = book.author;
   newBook.querySelector(".book-pages").textContent = book.numPages;
   
+
+  const newButton=newBook.querySelector("#read-btn");
+  
+  let readBtnCounterAux=0;
+
+  
+  newBook.querySelector("#read-btn").addEventListener("click", () =>
+     {
+    if(readBtnCounterAux%2==0) {
+     
+      newButton.value="Already red";
+      newButton.style.backgroundColor= 'Green';
+    }
+    else {
+      newButton.value="Not readen yet";
+      newButton.style.backgroundColor= 'Red';
+    }
+    readBtnCounterAux++;
+    
+    
+  })
+  
+  
+
+  
   // Append the new book to the book display
   bookDisplay.appendChild(newBook);
-
+  
   newBook.querySelector("#close-btn").addEventListener("click",() =>
   {
     bookDisplay.removeChild(newBook);
@@ -109,7 +135,7 @@ submitBook.addEventListener("click", (event) => {
   event.preventDefault(); //avoid the page reseting each time the button is clicked
 
   ++clickCounter;
-  console.log(clickCounter);
+  
   
   book=new Book(bookTitle.value,bookAuthor.value,bookPages.value);
   addBookToLibrary(book);
@@ -124,3 +150,17 @@ resetButton.addEventListener("click", (event)=> {
 })
 
 
+readBtnCounter=0;
+readButton.addEventListener("click", () => {
+  if(readBtnCounter%2==0) {
+    readButton.value="Already red";
+    readButton.style.backgroundColor= 'Green';
+  }
+  else {
+    readButton.value="Not readen yet";
+    readButton.style.backgroundColor= 'Red';
+  }
+  readBtnCounter++;
+  
+  
+})
