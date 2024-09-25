@@ -8,5 +8,6 @@ Exercise from [_The Odin Project_](https://www.theodinproject.com/lessons/node-p
 🔗[Add books to your library](https://raw.githack.com/Francois-T9/library-app/main/index.html)
 
 ## Things to be implemented
-Add a book page image instead of the plain card container
+-Remove the first book added by default
+-Add a book page image instead of the plain card container
 
