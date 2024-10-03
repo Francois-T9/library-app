@@ -30,12 +30,27 @@ const pagesValue=document.createElement("p")
 
 // ------------- BOOKS THAT APPEARS BY DEFAULT
 
-const book1= new Book("A Song of Ice and Fire","George R. R. Martin",256);
-const book2= new Book("harry","JKR",113);
 
+//--------- FUNCTIONS ------------
+//  function Book(title,author,numPages) {
+  //    this.title=title;
+  //    this.author=author;
+  //    this.numPages=numPages;
+  //  }
+  
+  class Book {
+    constructor(title,author,numPages) {
+      this.title=title;
+      this.author=author;
+      this.numPages=numPages;
+      
+    }
+  }
+  
+  const book1= new Book("A Song of Ice and Fire","George R. R. Martin",256);
+  const book2= new Book("harry","JKR",113);
+  
 
-
- //--------- FUNCTIONS ------------
  function resetLibrary() {
   myLibrary=[];
   addBookToLibrary(book1);
@@ -58,11 +73,6 @@ function resetTitle() {
 
 }
 
-function Book(title,author,numPages) {
-  this.title=title;
-  this.author=author;
-  this.numPages=numPages;
-}
 
 function addBookToLibrary(book) {
   myLibrary.push(book);
