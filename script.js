@@ -3,6 +3,8 @@ let myLibrary = [];
 
 
 // ---------- USER INPUTS
+
+const form=document.getElementById("form")
 const bookTitle=document.querySelector("#title");
 const bookAuthor=document.querySelector("#author");
 const bookPages=document.querySelector("#num-pages");
@@ -141,17 +143,19 @@ defaultBook(myLibrary[0]);
 // -------- GETTING USER INPUT AND DISPLAY IT------
 
 let clickCounter=0;
-submitBook.addEventListener("click", (event) => {
-  event.preventDefault(); //avoid the page reseting each time the button is clicked
+form.addEventListener("submit", (event) => {
+  FormValidation()
+  console.log(document.getElementById("form").checkValidity())
+  if(document.getElementById("form").checkValidity()) {
+    // event.preventDefault(); //avoid the page reseting each time the button is clicked
+    ++clickCounter;
 
-  ++clickCounter;
+    book=new Book(bookTitle.value,bookAuthor.value,bookPages.value);
+    addBookToLibrary(book);
   
-  
-  book=new Book(bookTitle.value,bookAuthor.value,bookPages.value);
-  addBookToLibrary(book);
-
-  createBookCard(myLibrary[clickCounter]);
-  resetTitle();
+    createBookCard(myLibrary[clickCounter]);
+    resetTitle();
+  }
 })
 
 resetButton.addEventListener("click", (event)=> {
@@ -174,3 +178,30 @@ readButton.addEventListener("click", () => {
   
   
 })
+
+
+//form validation functions
+
+const FormValidation=() => {
+ 
+  // console.log(bookTitle.validity.typeMismatch)
+  bookTitle.addEventListener("input",(e) => {
+    if(bookTitle.validity.typeMismatch) {
+      bookTitle.setCustomValidity("test")
+    }
+    else {
+      bookTitle.setCustomValidity("")
+    }
+  })
+}
+
+const SetFormConstraints=(()=> {
+  bookTitle.required="true"
+  bookTitle.setAttribute("minlength",3)
+
+  bookAuthor.required="true"
+  bookAuthor.setAttribute("minlength",3)
+
+  bookPages.required="true"
+  bookPages.setAttribute("min",10)
+})()
