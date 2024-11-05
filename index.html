@@ -1,60 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
     <script defer src="script.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="user-inputs">
-            <form action="/" id="form" >
-                <ul>
-                    <li>
-                        <label for="title">Title</label>
-                        <input type="text" id="title" placeholder="Title of the book" >
-                    </li>
-                    <li>
-                        <label for="author">Author</label>
-                        <input type="text" id="author" placeholder="Author of the book" >
-                    </li>
-                    <li>
-                        <label for="num-pages">Number of pages</label>
-                        <input type="number" id="num-pages" placeholder="Number of pages of the book">
-                    </li>
-                    
-                    <li><input type="submit" id="submit-btn" value="New book!">
-                        <button id="reset-btn">Reset library</button>
-                    </li>
-                </ul>
-            </form>
-        </div>
+      <div class="user-inputs">
+        <form action="/" id="form">
+          <ul>
+            <li>
+              <div class="input-control">
+                <label for="title">Title</label>
+                <input type="text" id="title" placeholder="Title of the book" />
+                <div class="error"></div>
+              </div>
+            </li>
+            <li>
+              <div class="input-control">
+                <label for="author">Author</label>
+                <input
+                  type="text"
+                  id="author"
+                  placeholder="Author of the book"
+                />
+                <div class="error"></div>
+              </div>
+            </li>
+            <li>
+              <div class="input-control">
+                <label for="num-pages">Number of pages</label>
+                <input
+                  type="number"
+                  id="num-pages"
+                  placeholder="Number of pages of the book"
+                />
+                <div class="error"></div>
+              </div>
+            </li>
 
-        <div class="book-display">
-            
-                    <book>
-                        <h3>Title</h3>
-                        <div class="book-title">    
-                        
-                        </div>
-                        <h3>Author</h3>
-                        <div class="book-author">
-                        
-                        </div>
-                        <h3>Number of pages</h3>
-                        <div class="book-pages">
-                        
-                        </div>
-                        <input type="image" id="close-btn" src="img/close-thick.svg">
-                        <input type="button" id="read-btn" value="Not read yet">
-                    </book>
-                    
-               
-        </div>
+            <li>
+              <input type="submit" id="submit-btn" value="New book!" />
+              <button id="reset-btn">Reset library</button>
+            </li>
+          </ul>
+        </form>
+      </div>
 
+      <div class="book-display">
+        <book>
+          <h3>Title</h3>
+          <div class="book-title"></div>
+          <h3>Author</h3>
+          <div class="book-author"></div>
+          <h3>Number of pages</h3>
+          <div class="book-pages"></div>
+          <input type="image" id="close-btn" src="img/close-thick.svg" />
+          <input type="button" id="read-btn" value="Not read yet" />
+        </book>
+      </div>
     </div>
-</body>
+  </body>
 </html>
